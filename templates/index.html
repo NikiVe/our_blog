@@ -10,11 +10,12 @@
     <body>
         Home Page
         {% if user.is_authenticated %}
-            Hi {{ user }}! 
+            Hi {{ user.full_name }}! 
             <a href="{% url 'logout' %}">Log out</a> 
+            <a href="{% url 'update user' %}">Update your profile</a> 
         {% else %}
             <p>You are not logged in</p>
-            <a href="{% url 'registration' %}">Registration</a> or <a href="{% url 'login' %}">Log in</a>
+            <a href="{% url 'register' %}">Register</a> or <a href="{% url 'login' %}">Log in</a>
         {% endif %}
     </body>
 </html>

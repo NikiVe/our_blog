@@ -9,8 +9,10 @@ class RegistrationForm(UserCreationForm):
         fields = ('email', 'first_name', 'last_name', 'bio', 'profile_picture')
 
 
-# class MyUserChangeForm(UserChangeForm):
+class UserUpdateForm(UserChangeForm):
+    password = None
 
-#     class Meta(MyUserChangeForm):
-#         model = User
-#         fields = ('email', 'first_name', 'last_name', 'bio', 'profile_picture')
+    class Meta:
+        model = User
+        fields = ['email', 'first_name',
+                  'last_name', 'bio', 'profile_picture']

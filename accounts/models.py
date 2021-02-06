@@ -16,7 +16,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     bio = models.TextField(max_length=1000,blank=True)
-    profile_picture = models.ImageField(blank=True, upload_to='profile_images')
+    profile_picture = models.ImageField(blank=True, upload_to='profile_images/')
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
