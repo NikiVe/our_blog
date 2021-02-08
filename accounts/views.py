@@ -28,8 +28,7 @@ class UserUpdateView(auth_mixins.LoginRequiredMixin, views.UpdateView):
     model = User
     success_url = reverse_lazy('home')
 
-    def get_object(self, queryset=None):
-        pk = self.kwargs.get('pk', None)
+    def get_object(self, queryset=None): 
         user = self.request.user 
         return user
 

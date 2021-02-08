@@ -5,6 +5,7 @@ from .models import User
 from .forms import UserCreationForm, UserChangeForm
 
 
+
 class MyAdmin(UserAdmin):
     # add_form = UserCreationForm
     # form = UserChangeForm

@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<h1>{{ post.title }}</h1>
+
+<article>{{ post.content|safe }}</article>
+<a href="{% url 'post-update' post.pk %}" class="btn btn-primary">Edit</a>
+{% endblock %}

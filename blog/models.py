@@ -4,11 +4,23 @@ from django.utils import timezone
 from django.utils.text import slugify
 
 
+
 User = get_user_model()
+
+class Category(models.Model):
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+    
+    class Meta:
+        verbose_name = ('category')
+        verbose_name_plural = ('categories')
 
 class Post(models.Model):
     title = models.CharField(max_length=250)
     content = models.TextField()
+    category = models.ManyToManyField(Category)
     slug = models.SlugField(editable=False)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     post_image = models.ImageField(blank=True, upload_to='post_images/')
@@ -32,14 +44,6 @@ class Comment(models.Model):
         return self.content
 
 
-class Category(models.Model):
-    name = models.CharField(max_length=100)
 
-    def __str__(self):
-        return self.name
-    
-    class Meta:
-        verbose_name = ('category')
-        verbose_name_plural = ('categories')
 
 
