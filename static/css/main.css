@@ -1,0 +1,25 @@
+
+
+.list-horisontal {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0;
+
+}
+
+.list-item {
+    display: flex;
+}
+
+.site-nav {
+    background: lightblue;
+    padding: 20px;
+
+}
+
+#root {
+    display: flex;
+    margin-block-start: 30px;
+    justify-content: center;
+}

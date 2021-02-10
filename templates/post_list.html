@@ -1,15 +1,15 @@
-{% extends 'base.html' %}
+{% extends 'shared/base.html' %}
 
 
 {% block content %}
 
-
-{% for post in post_list %}
+<div>
+    {% for post in post_list %}
     <h4>{{ post.title }}</h4>
     <p>{{ post.content }}</p>
-    <a href="{% url 'post-detail' post.pk %}" >See more</a>
-    <a href="{% url 'post-delete' post.pk %}" >Delete</a>
+    <a href="{% url 'post-detail' post.pk %}">See more</a>
+    <a href="{% url 'post-delete' post.pk %}">Delete</a>
 
-{% endfor %}
-
+    {% endfor %}
+</div>
 {% endblock %}

@@ -1,18 +1,20 @@
-{% extends 'base.html' %}
+{% extends 'shared/base.html' %}
 
 {% block title %}Home page{% endblock %}
 
 
 {% block content %}
-<div class="row">
-    <div class="col-lg-3"></div>
-    <div class="col-lg-6">
+
+    <div >
         <h2>Register</h2>
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}
+            
             <button type="submit">Register</button>
         </form>
+        
     </div>
-</div>
+    
+
 {% endblock %}

@@ -1,17 +1,23 @@
-{% extends 'base.html' %}
-        
-    {% block title %}Home page{% endblock %}
-       
+{% extends 'shared/base.html' %}
 
-    {% block content %}
+{% block title %}Home page{% endblock %}
 
-        {% if user.is_authenticated %}
-            Hi {{ user.full_name }}! 
-            <a href="{% url 'logout' %}">Log out</a> 
-            <a href="{% url 'update user' %}">Update your profile</a> 
-        {% else %}
-            <p>You are not logged in</p>
-            <a href="{% url 'register' %}">Register</a> or <a href="{% url 'login' %}">Log in</a>
+
+{% block content %}
+
+    <section>
+
+    <h1>Welcome to Our Blog</h1>
+
+        <div>
+            {% if user.is_authenticated %}
+            <h4>Hi {{ user.full_name }}!</h4>
+            <a href="{% url 'logout' %}">Log out</a>
+            <a href="{% url 'update user' %}">Update your profile</a>
+            {% else %}
+        <p>You are not logged in</p>
+        <a href="{% url 'register' %}">Register</a> or <a href="{% url 'login' %}">Log in</a>
         {% endif %}
-        
+        </div>
+</section>
     {% endblock %}

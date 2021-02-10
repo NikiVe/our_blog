@@ -1,9 +1,16 @@
-{% extends 'base.html' %}
+{% extends 'shared/base.html' %}
 
 
 {% block content %}
 <h1>{{ post.title }}</h1>
 
-<article>{{ post.content|safe }}</article>
+{% if post.post_image %}
+<div>
+    <img src="{{ post.post_image.url }} " >
+</div>
+{% endif %}
+
+<article >{{ post.content|safe }}</article>
+
 <a href="{% url 'post-update' post.pk %}" class="btn btn-primary">Edit</a>
 {% endblock %}
