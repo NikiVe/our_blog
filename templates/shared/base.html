@@ -16,18 +16,21 @@
 
 
 
-    {% block styles %}
-    {% endblock %}
+        {% block styles %}
+        {% endblock %}
     </head>
     {% include 'partials/nav.html' %}
+
     <body>
+    
+
         <div id="root">
-            
 
-                {% block content %}
 
-                {% endblock %}
-            
+            {% block content %}
+
+            {% endblock %}
+
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"

@@ -1,0 +1,12 @@
+{% extends 'shared/base.html' %}
+
+
+{% block content %}
+<div >
+        {% for post in posts %}
+            <p>{{ post.title }}</p>
+            <a href="{% url 'post-detail' post.pk %}">See more</a>
+        {% endfor %}
+    
+</div>
+{% endblock %}

@@ -2,15 +2,36 @@
 
 
 {% block content %}
-<h1>{{ post.title }}</h1>
-
-{% if post.post_image %}
 <div>
-    <img src="{{ post.post_image.url }} " >
+    <h4>{{ post.title }}</h4>
+
+    {% if post.post_image %}
+    <div>
+        <img src="{{ post.post_image.url }} ">
+    </div>
+    {% endif %}
+
+    <article>{{ post.content|safe }}</article>
+
+    {% if post.user == request.user %}
+        <a href="{% url 'post-update' post.pk %}">Edit</a>
+    {% endif %}
+
+    <div class="d-block" style="background-color: #f1e3e3; padding:2%">
+
+        {% for c in comments %}
+        <div class="box">
+            {{ c.content }}
+            <p>By {{ c.user }}</p>
+            
+        {% endfor %}
+
+        <form method="post" action="{% url 'comment' post.pk %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Comment</button>
+        </form>
+
+    </div>
+    {% endblock %}
 </div>
-{% endif %}
-
-<article >{{ post.content|safe }}</article>
-
-<a href="{% url 'post-update' post.pk %}" class="btn btn-primary">Edit</a>
-{% endblock %}

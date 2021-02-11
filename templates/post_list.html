@@ -4,9 +4,12 @@
 {% block content %}
 
 <div>
-    {% for post in post_list %}
+    {% for post in posts %}
     <h4>{{ post.title }}</h4>
+    <p>By {{ post.user.full_name }} </p>
     <p>{{ post.content }}</p>
+    <p>Added at {{ post.created_at }}</p>
+
     <a href="{% url 'post-detail' post.pk %}">See more</a>
     <a href="{% url 'post-delete' post.pk %}">Delete</a>
 

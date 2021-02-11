@@ -1,8 +1,10 @@
 from django.shortcuts import render
 from django.views import generic as views
-from .forms import RegistrationForm, UserUpdateForm
+from .forms import RegistrationForm, UserUpdateForm, LoginForm
 from django.urls import reverse_lazy, reverse
 from django.contrib.auth import login, logout
+from django.contrib.auth import views as auth_views
+
 from .models import User
 
 from django.contrib.auth import mixins as auth_mixins
@@ -31,6 +33,15 @@ class UserUpdateView(auth_mixins.LoginRequiredMixin, views.UpdateView):
     def get_object(self, queryset=None): 
         user = self.request.user 
         return user
+
+
+class LoginView(auth_views.LoginView):
+    form_class = LoginForm
+    template_name = 'registration/login.html'
+
+
+class LogoutView(auth_views.LogoutView):
+    next_page = reverse_lazy('home')
 
     
 
