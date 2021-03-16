@@ -1,3 +1,3 @@
 # our_blog
 
-## My first project from start to finish..
+## My first project from start to finish.
